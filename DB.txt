@@ -1,0 +1,20 @@
+CREATE TABLE team_detail(sl_no int primary key not null, team_name varchar(20), captain varchar(20) ,team_owner varchar(50),home_ground varchar(50))
+
+CREATE TABLE fixtures(match_no int, home_team varchar(20) , away_team varchar(20),venue varchar(50),team_won varchar(50), team_lost varchar(50))
+
+CREATE TABLE points(team_name varchar(20), wins varchar(20) , losses varchar(20), points varchar(50),CONSTRAINT Fk_tna FOREIGN KEY (team_name) REFERENCES team_details(team_name))
+
+copy team_details(SL_no, Team_Name, Captain, Team_Owner, Home_Ground)
+FROM 'C:\Users\rashmir8\Desktop\team_details.csv'
+delimiter ','
+csv header;
+
+
+
+SELECT * FROM PUBLIC.Fixtures
+WHERE Home_Team='RCB' AND Venue="Bangalore"
+
+SELECT * FROM team_details
+
+SELECT Team_Lost FROM PUBLIC.Fixtures
+WHERE Venue='Kolkata'
